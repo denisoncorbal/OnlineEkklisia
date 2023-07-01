@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BackendOnlineEkklisiaApplication<backendonlineekklisia>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.dgc.backendonlineekklisia.BackendOnlineEkklisiaApplication",
+            "projectName": "backendonlineekklisia",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
