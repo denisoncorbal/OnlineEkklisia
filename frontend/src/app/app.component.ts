@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'frontendonlineekklisia';
+  title = 'Online Ekklisia';
+  protected showMenu = false;
+  sendToggleMenu(showMenu: boolean) {
+    this.showMenu = showMenu;
+  }
 }

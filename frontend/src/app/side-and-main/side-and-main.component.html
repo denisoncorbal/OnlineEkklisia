@@ -1,0 +1,14 @@
+<mat-sidenav-container class="example-container" autosize [style.height.vh]="80">
+
+    <mat-sidenav #drawer class="example-sidenav" mode="side" role="navigation">
+        <nav>
+            <p>Auto-resizing sidenav</p>
+        </nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content role="main">
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

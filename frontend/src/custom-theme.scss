@@ -108,28 +108,32 @@ $md-warningred: (
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$frontendonlineekklisia-primary: mat.define-palette($md-primarygreen, 500, 300, 100);
-$frontendonlineekklisia-accent: mat.define-palette($md-secondarypurple, 500, 300, 100);
+$frontendonlineekklisia-primary-light: mat.define-palette($md-primarygreen, 300, 50, 900);
+$frontendonlineekklisia-accent-light: mat.define-palette($md-secondarypurple, 300, 50, 900);
+$frontendonlineekklisia-warn-light: mat.define-palette($md-warningred, 300, 50, 900);
 
-// The warn palette is optional (defaults to red).
-$frontendonlineekklisia-warn: mat.define-palette($md-warningred, 500, 300, 100);
+$frontendonlineekklisia-primary-dark: mat.define-palette($md-primarygreen, 100, 50, 900);
+$frontendonlineekklisia-accent-dark: mat.define-palette($md-secondarypurple, 100, 50, 900);
+$frontendonlineekklisia-warn-dark: mat.define-palette($md-warningred, 100, 50, 900);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$frontendonlineekklisia-light-theme: mat.define-light-theme((color: (primary: $frontendonlineekklisia-primary,
-        accent: $frontendonlineekklisia-accent,
-        warn: $frontendonlineekklisia-warn,
+$frontendonlineekklisia-light-theme: mat.define-light-theme((color: (primary: $frontendonlineekklisia-primary-light,
+        accent: $frontendonlineekklisia-accent-light,
+        warn: $frontendonlineekklisia-warn-light,
       )));
 
-$frontendonlineekklisia-dark-theme: mat.define-dark-theme((color: (primary: $frontendonlineekklisia-primary,
-        accent: $frontendonlineekklisia-accent,
-        warn: $frontendonlineekklisia-warn,
+$frontendonlineekklisia-dark-theme: mat.define-dark-theme((color: (primary: $frontendonlineekklisia-primary-dark,
+        accent: $frontendonlineekklisia-accent-dark,
+        warn: $frontendonlineekklisia-warn-dark,
       )));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($frontendonlineekklisia-light-theme);
+@media (prefers-color-scheme: light) {
+  @include mat.all-component-themes($frontendonlineekklisia-light-theme);
+}
 
 @media (prefers-color-scheme: dark) {
   @include mat.all-component-colors($frontendonlineekklisia-dark-theme);
