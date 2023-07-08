@@ -6,9 +6,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { SideAndMainComponent } from './side-and-main/side-and-main.component';
+import { HeaderComponent } from './base-ui/header/header.component';
+import { FooterComponent } from './base-ui/footer/footer.component';
+import { SideAndMainComponent } from './base-ui/side-and-main/side-and-main.component';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
