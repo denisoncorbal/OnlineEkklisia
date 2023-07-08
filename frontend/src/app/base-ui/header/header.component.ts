@@ -6,7 +6,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent {
-  constructor() { }
 
   @Output() emitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 

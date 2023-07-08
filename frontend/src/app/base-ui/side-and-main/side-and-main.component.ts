@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
@@ -6,10 +6,9 @@ import { MatSidenav } from '@angular/material/sidenav';
   templateUrl: './side-and-main.component.html',
   styleUrls: ['./side-and-main.component.sass']
 })
-export class SideAndMainComponent implements AfterViewInit {
-  constructor() { }
+export class SideAndMainComponent implements AfterViewInit, OnChanges {
 
-  @Input() showMenu: boolean = false;
+  @Input() showMenu = false;
   @ViewChild('drawer') drawer!: MatSidenav;
 
   ngOnChanges(changes: SimpleChanges) {

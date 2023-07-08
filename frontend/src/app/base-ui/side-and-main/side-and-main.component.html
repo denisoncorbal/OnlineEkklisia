@@ -1,14 +1,18 @@
-<mat-sidenav-container class="example-container" autosize [style.height.vh]="80">
-
-    <mat-sidenav #drawer class="example-sidenav" mode="side" role="navigation">
-        <nav>
-            <p>Auto-resizing sidenav</p>
+<mat-sidenav-container class="side-and-main-container" autosize [style.height.vh]="80">
+    <mat-sidenav #drawer class="sidenav-container" mode="side" role="navigation">
+        <nav class="main-nav">
+            <ul>
+                <li>
+                    <a routerLink="/church/create" routerLinkActive="active" ariaCurrentWhenActive="page">Create
+                        Church</a>
+                </li>
+            </ul>
         </nav>
     </mat-sidenav>
 
-    <mat-sidenav-content role="main">
-        <main>
-            <router-outlet></router-outlet>
+    <mat-sidenav-content class="main-container" role="main">
+        <main class="main-content">
+            <router-outlet class="inner-page"></router-outlet>
         </main>
     </mat-sidenav-content>
 </mat-sidenav-container>

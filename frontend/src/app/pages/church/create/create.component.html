@@ -1,0 +1,16 @@
+<mat-form-field>
+    <mat-label>Enter the name of the church</mat-label>
+    <input matInput placeholder="Brazilian Presbyterian Church" [formControl]="name" />
+    <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Enter the abbreviation of the church</mat-label>
+    <input matInput placeholder="IPB" [formControl]="abbreviation" />
+    <mat-error *ngIf="abbreviation.invalid">{{getAbbreviationErrorMessage()}}</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Enter the CNPJ of the church</mat-label>
+    <input matInput placeholder="00.000.000/0000-00" mask="00.000.000/0000-00" [formControl]="cnpj" />
+    <mat-error *ngIf="cnpj.invalid">{{getCnpjErrorMessage()}}</mat-error>
+</mat-form-field>
+<button matButton type="submit" (click)="submitForm()">Criar</button>
