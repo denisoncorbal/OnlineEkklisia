@@ -18,7 +18,7 @@ public class Church {
     @Column(nullable = false, length = 10)
     private String abbreviation;
 
-    @Column(nullable = false, length = 14)
+    @Column(unique = true, nullable = false, length = 14)
     private String cnpj;
 
     public Church() {

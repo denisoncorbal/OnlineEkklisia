@@ -14,6 +14,7 @@ import { SideAndMainComponent } from './base-ui/side-and-main/side-and-main.comp
 import { FooterComponent } from './base-ui/footer/footer.component';
 import { CreateComponent } from './pages/church/create/create.component';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,6 @@ import { provideEnvironmentNgxMask } from 'ngx-mask';
     HeaderComponent,
     SideAndMainComponent,
     FooterComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -33,6 +33,7 @@ import { provideEnvironmentNgxMask } from 'ngx-mask';
     NgIf,
     MatSidenavModule,
     CreateComponent,
+    HttpClientModule
   ],
   providers: [provideEnvironmentNgxMask()],
   bootstrap: [AppComponent]
