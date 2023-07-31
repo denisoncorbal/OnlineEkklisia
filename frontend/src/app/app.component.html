@@ -1,5 +1,5 @@
-<app-header (emitter)="sendToggleMenu($event)" />
+<app-header (emitter)="sendToggleMenuFromHeader()" />
 
-<app-side-and-main [showMenu]="showMenu" />
+<app-side-and-main (emitter)="sendToggleMenuFromLink()" [showMenu]="showMenu" />
 
 <app-footer />

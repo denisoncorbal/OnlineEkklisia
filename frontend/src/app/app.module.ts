@@ -12,13 +12,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { HeaderComponent } from './base-ui/header/header.component';
 import { SideAndMainComponent } from './base-ui/side-and-main/side-and-main.component';
 import { FooterComponent } from './base-ui/footer/footer.component';
+import { CreateComponent } from './pages/church/create/create.component';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SideAndMainComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,10 +31,13 @@ import { FooterComponent } from './base-ui/footer/footer.component';
     MatButtonModule,
     MatIconModule,
     NgIf,
-    MatSidenavModule
+    MatSidenavModule,
+    CreateComponent,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [provideEnvironmentNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
+

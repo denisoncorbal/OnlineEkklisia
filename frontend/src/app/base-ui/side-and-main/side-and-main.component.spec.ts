@@ -4,6 +4,7 @@ import { SideAndMainComponent } from './side-and-main.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 describe('SideAndMainComponent', () => {
   let component: SideAndMainComponent;
@@ -15,7 +16,8 @@ describe('SideAndMainComponent', () => {
       imports: [
         MatSidenavModule,
         BrowserAnimationsModule,
-        RouterModule
+        RouterModule,
+        AppRoutingModule
       ]
     });
     fixture = TestBed.createComponent(SideAndMainComponent);
