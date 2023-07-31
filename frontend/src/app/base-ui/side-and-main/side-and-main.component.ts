@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
@@ -9,7 +9,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class SideAndMainComponent implements AfterViewInit, OnChanges {
 
   @Input() showMenu = false;
-  @ViewChild('drawer') drawer!: MatSidenav;
+  @ViewChild('navMenu') navMenu!: MatSidenav;
+  @Output() emitter: EventEmitter<void> = new EventEmitter<void>();
 
   ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
@@ -23,15 +24,19 @@ export class SideAndMainComponent implements AfterViewInit, OnChanges {
     this.toggleMenu();
   }
 
+  emitToggleMenuFromLink() {
+    this.emitter.emit();
+  }
+
   toggleMenu() {
-    if (this.drawer) {
+    if (this.navMenu) {
       switch (this.showMenu) {
         case true: {
-          this.drawer.open();
+          this.navMenu.open();
           break;
         }
         case false: {
-          this.drawer.close();
+          this.navMenu.close();
           break;
         }
       }

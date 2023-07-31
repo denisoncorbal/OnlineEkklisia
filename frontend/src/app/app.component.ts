@@ -7,8 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Online Ekklisia';
+
   protected showMenu = false;
-  sendToggleMenu(showMenu: boolean) {
-    this.showMenu = showMenu;
+
+  sendToggleMenuFromHeader() {
+    this.showMenu = !this.showMenu;
   }
+
+  sendToggleMenuFromLink() {
+    this.showMenu = !this.showMenu;
+  }
+
 }

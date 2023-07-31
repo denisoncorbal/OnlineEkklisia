@@ -7,12 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Output() emitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() emitter: EventEmitter<void> = new EventEmitter<void>();
 
-  private showMenu = false;
-
-  emitToggleMenu() {
-    this.showMenu = !this.showMenu;
-    this.emitter.emit(this.showMenu);
+  emitToggleMenuFromHeader() {
+    this.emitter.emit();
   }
 }

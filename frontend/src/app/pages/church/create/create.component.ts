@@ -1,6 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
@@ -11,7 +12,7 @@ import { ChurchService } from 'src/app/services/church.service';
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.sass'],
-  imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, NgIf, NgxMaskDirective, NgxMaskPipe],
+  imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, NgIf, NgxMaskDirective, NgxMaskPipe, MatButtonModule],
   providers: [provideNgxMask()],
   standalone: true
 })
