@@ -80,5 +80,8 @@ export class CreateComponent {
         } as Church
       )
     }
+    this.name.reset();
+    this.abbreviation.reset();
+    this.cnpj.reset();
   }
 }
