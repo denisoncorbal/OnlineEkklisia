@@ -5,7 +5,13 @@
                 <li>
                     <a #linkCreateChurch routerLink="/church/create" routerLinkActive="active"
                         ariaCurrentWhenActive="page" (click)="emitToggleMenuFromLink()">Create
-                        Church</a>
+                        Church
+                    </a>
+                </li>
+                <li>
+                    <a #linkCreateChurch routerLink="/church/list" routerLinkActive="active"
+                        ariaCurrentWhenActive="page" (click)="emitToggleMenuFromLink()">List Churches
+                    </a>
                 </li>
             </ul>
         </nav>

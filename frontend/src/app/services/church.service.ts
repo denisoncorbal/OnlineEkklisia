@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as constants from '../constants/constants';
 import { Church } from '../models/church';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { catchError, firstValueFrom, retry, throwError } from 'rxjs';
+import { Observable, catchError, firstValueFrom, retry, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,14 @@ export class ChurchService {
         catchError(this.handleError),
       )
     )
+  }
+
+  getChurches(): Observable<Church[]> {
+    return this.httpClient.get<Church[]>(this.churchUrl)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
   }
 
   handleError(error: HttpErrorResponse) {

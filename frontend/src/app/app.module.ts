@@ -15,6 +15,7 @@ import { FooterComponent } from './base-ui/footer/footer.component';
 import { CreateComponent } from './pages/church/create/create.component';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
+import { ListComponent } from './pages/church/list/list.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgIf,
     MatSidenavModule,
     CreateComponent,
+    ListComponent,
     HttpClientModule
   ],
   providers: [provideEnvironmentNgxMask()],
