@@ -24,4 +24,8 @@ public class ChurchService {
         return churchRepository.findAll();
     }
 
+    public Church readById(Long id) {
+        return churchRepository.findById(id).get();
+    }
+
 }
