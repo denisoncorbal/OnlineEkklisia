@@ -1,5 +1,7 @@
 package com.dgc.backendonlineekklisia.church.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.dgc.backendonlineekklisia.church.model.Church;
@@ -16,6 +18,10 @@ public class ChurchService {
 
     public Church create(Church newChurch) {
         return churchRepository.save(newChurch);
+    }
+
+    public List<Church> read() {
+        return churchRepository.findAll();
     }
 
 }
