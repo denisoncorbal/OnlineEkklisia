@@ -16,6 +16,7 @@ import { CreateComponent } from './pages/church/create/create.component';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
 import { ListComponent } from './pages/church/list/list.component';
+import { EditComponent } from './pages/church/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ListComponent } from './pages/church/list/list.component';
     MatSidenavModule,
     CreateComponent,
     ListComponent,
-    HttpClientModule
+    HttpClientModule,
+    EditComponent,
   ],
   providers: [provideEnvironmentNgxMask()],
   bootstrap: [AppComponent]
