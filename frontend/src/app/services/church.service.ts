@@ -36,6 +36,24 @@ export class ChurchService {
       )
   }
 
+  async getChurch(id: number): Promise<Church> {
+    return await firstValueFrom(this.httpClient.get<Church>(this.churchUrl + '/' + id)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+    )
+  }
+
+  async updateChurch(church: Church) {
+    await firstValueFrom(this.httpClient.put<Church>(this.churchUrl + '/' + church.id, JSON.stringify(church), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError),
+      )
+    )
+  }
+
   handleError(error: HttpErrorResponse) {
     return throwError(() => new Error(error.error.message));
   }

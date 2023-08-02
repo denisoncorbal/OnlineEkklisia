@@ -1,0 +1,23 @@
+<div class="edit-church">
+    <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput id="id" placeholder="Id" [formControl]="id" readonly />
+        <mat-error *ngIf="id.invalid">{{getIdErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput id="name" placeholder="Name" [formControl]="name" />
+        <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Abbreviation</mat-label>
+        <input matInput id="abbreviation" placeholder="Abbreviation" [formControl]="abbreviation" />
+        <mat-error *ngIf="abbreviation.invalid">{{getAbbreviationErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>CNPJ</mat-label>
+        <input matInput id="cnpj" placeholder="CNPJ" mask="00.000.000/0000-00" [formControl]="cnpj" />
+        <mat-error *ngIf="cnpj.invalid">{{getCnpjErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" (click)="submitForm()">Save</button>
+</div>

@@ -24,4 +24,25 @@ public class ChurchService {
         return churchRepository.findAll();
     }
 
+    public Church readById(Long id) {
+        return churchRepository.findById(id).get();
+    }
+
+    public Church updateById(Long id, Church updatedChurch) {
+        Church actualChurch = readById(id);
+        if (actualChurch.getId() != updatedChurch.getId())
+            return null;
+
+        if (actualChurch.getName() != updatedChurch.getName())
+            actualChurch.setName(updatedChurch.getName());
+        if (actualChurch.getAbbreviation() != updatedChurch.getAbbreviation())
+            actualChurch.setAbbreviation(updatedChurch.getAbbreviation());
+        if (actualChurch.getCnpj() != updatedChurch.getCnpj())
+            actualChurch.setCnpj(updatedChurch.getCnpj());
+
+        actualChurch = churchRepository.save(actualChurch);
+
+        return actualChurch;
+    }
+
 }
