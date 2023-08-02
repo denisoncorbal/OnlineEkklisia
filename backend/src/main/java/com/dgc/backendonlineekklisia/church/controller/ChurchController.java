@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,5 +43,10 @@ public class ChurchController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<Church> readById(@PathVariable Long id) {
         return ResponseEntity.ok(churchService.readById(id));
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Church> updateById(@PathVariable Long id, @RequestBody Church updatedChurch) {
+        return ResponseEntity.ok(churchService.updateById(id, updatedChurch));
     }
 }

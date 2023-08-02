@@ -94,8 +94,9 @@ export class EditComponent implements OnInit {
 
   submitForm() {
     if (this.id.value && this.name.value && this.abbreviation.value && this.cnpj.value) {
-      this.churchService.createChurch(
+      this.churchService.updateChurch(
         {
+          id: Number(this.id.value),
           name: this.name.value,
           abbreviation: this.abbreviation.value,
           cnpj: this.cnpj.value

@@ -1,7 +1,7 @@
 <div class="edit-church">
     <mat-form-field>
         <mat-label>Id</mat-label>
-        <input matInput id="id" placeholder="Id" [formControl]="name" />
+        <input matInput id="id" placeholder="Id" [formControl]="id" readonly />
         <mat-error *ngIf="id.invalid">{{getIdErrorMessage()}}</mat-error>
     </mat-form-field>
     <mat-form-field>
