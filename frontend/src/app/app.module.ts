@@ -17,6 +17,7 @@ import { provideEnvironmentNgxMask } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
 import { ListComponent } from './pages/church/list/list.component';
 import { EditComponent } from './pages/church/edit/edit.component';
+import { DeleteComponent } from './pages/church/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { EditComponent } from './pages/church/edit/edit.component';
     ListComponent,
     HttpClientModule,
     EditComponent,
+    DeleteComponent,
   ],
   providers: [provideEnvironmentNgxMask()],
   bootstrap: [AppComponent]

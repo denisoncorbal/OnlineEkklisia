@@ -45,4 +45,8 @@ public class ChurchService {
         return actualChurch;
     }
 
+    public void deleteById(Long id) {
+        churchRepository.deleteById(id);
+    }
+
 }
