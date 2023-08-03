@@ -54,6 +54,15 @@ export class ChurchService {
     )
   }
 
+  async deleteChurch(id: number) {
+    await firstValueFrom(this.httpClient.delete(this.churchUrl + '/' + id)
+      .pipe(
+        retry(2),
+        catchError(this.handleError),
+      )
+    )
+  }
+
   handleError(error: HttpErrorResponse) {
     return throwError(() => new Error(error.error.message));
   }

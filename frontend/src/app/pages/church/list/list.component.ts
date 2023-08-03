@@ -17,7 +17,7 @@ export class ListComponent implements OnInit {
   constructor(private churchService: ChurchService) { }
 
   protected churches: Church[] = [];
-  protected columnsToDisplay = ['id', 'name', 'abbreviation', 'cnpj', 'edit']
+  protected columnsToDisplay = ['id', 'name', 'abbreviation', 'cnpj', 'edit', 'delete']
 
   ngOnInit() {
     this.churchService.getChurches().subscribe((church) => { this.churches = church });
