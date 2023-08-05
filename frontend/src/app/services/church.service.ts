@@ -1,8 +1,8 @@
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, catchError, firstValueFrom, retry, throwError } from 'rxjs';
 import * as constants from '../constants/constants';
 import { Church } from '../models/church';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, firstValueFrom, retry, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -64,7 +64,8 @@ export class ChurchService {
   }
 
   handleError(error: HttpErrorResponse) {
-    return throwError(() => new Error(error.error.message));
+    console.log(error);
+    return throwError(() => new Error(error.message));
   }
 
 }

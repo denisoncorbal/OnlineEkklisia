@@ -31,17 +31,13 @@ describe('HeaderComponent', () => {
   })
 
   it('should emit toggleMenu', () => {
-    let showMenuMock = false;
-    component.emitter.subscribe((showMenu) => {
-      if (!showMenuMock) {
-        expect(showMenu).toBeTruthy();
-      } else {
-        expect(showMenu).toBeFalsy();
-      }
-      showMenuMock = !showMenuMock;
+    let counter = 0;
+    component.emitter.subscribe(() => {
+      counter++;
     })
     for (let i = 0; i < 5; i++) {
-      component.emitToggleMenu();
+      component.emitToggleMenuFromHeader();
     }
+    expect(counter).toEqual(5);
   })
 });

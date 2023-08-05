@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Church } from 'src/app/models/church';
-import { ChurchService } from 'src/app/services/church.service';
+import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
+import { Church } from 'src/app/models/church';
+import { ChurchService } from 'src/app/services/church.service';
 
 @Component({
   selector: 'app-list',
@@ -20,9 +20,12 @@ export class ListComponent implements OnInit {
   protected columnsToDisplay = ['id', 'name', 'abbreviation', 'cnpj', 'edit', 'delete']
 
   ngOnInit() {
-    this.churchService.getChurches().subscribe((church) => { this.churches = church });
+    this.churchService.getChurches().subscribe(
+      {
+        next: (church) => { this.churches = church },
+        error: (err) => { console.log(err) },
+        complete: () => { console.log("Complete") }
+      }
+    );
   }
-
-
-
 }
