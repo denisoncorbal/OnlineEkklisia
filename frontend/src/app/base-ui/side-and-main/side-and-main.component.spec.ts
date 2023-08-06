@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SideAndMainComponent } from './side-and-main.component';
+import { SimpleChange } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { SideAndMainComponent } from './side-and-main.component';
 
 describe('SideAndMainComponent', () => {
   let component: SideAndMainComponent;
@@ -21,8 +22,8 @@ describe('SideAndMainComponent', () => {
       ]
     });
     fixture = TestBed.createComponent(SideAndMainComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
+    component = fixture.componentInstance;
   });
 
   it('should create side-and-main component', () => {
@@ -40,16 +41,23 @@ describe('SideAndMainComponent', () => {
   })
 
   it('should open and close menu', () => {
-    component.showMenu = false;
-    component.toggleMenu();
-    fixture.detectChanges();
-    const compiledFalse = fixture.nativeElement as HTMLElement;
-    expect(compiledFalse.querySelector('mat-sidenav')?.checkVisibility()).toBeFalsy();
-
     component.showMenu = true;
     component.toggleMenu();
     fixture.detectChanges();
-    const compiledTrue = fixture.nativeElement as HTMLElement;
-    expect(compiledTrue.querySelector('mat-sidenav')?.checkVisibility()).toBeTruthy();
+    expect(component.navMenu.opened).toBeTruthy();
+
+    component.showMenu = false;
+    component.toggleMenu();
+    fixture.detectChanges();
+    expect(component.navMenu.opened).toBeFalsy();
+  })
+
+  it('shoul call toggleMenu when call ngOnChanges only with showMenu', () => {
+    const toggleSpy = spyOn(component, 'toggleMenu');
+    component.ngOnChanges({ test: new SimpleChange(false, true, false) });
+    expect(toggleSpy).toHaveBeenCalledTimes(0);
+
+    component.ngOnChanges({ showMenu: new SimpleChange(false, true, false) });
+    expect(toggleSpy).toHaveBeenCalled();
   })
 });

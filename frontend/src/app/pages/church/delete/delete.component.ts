@@ -30,9 +30,9 @@ export class DeleteComponent implements OnInit {
   }
 
   id = new FormControl('', [Validators.required, Validators.min(0)]);
-  name = new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9àáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,50}$/), Validators.minLength(3), Validators.maxLength(50)]);
+  name = new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9àáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/), Validators.minLength(3), Validators.maxLength(50)]);
   abbreviation = new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]{3,10}$/), Validators.minLength(3), Validators.maxLength(10)]);
-  cnpj = new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{14,14}$/), Validators.minLength(14), Validators.maxLength(14)
+  cnpj = new FormControl('', [Validators.required, Validators.pattern(/^[0-9]+$/), Validators.minLength(14), Validators.maxLength(14)
   ]);
 
   getIdErrorMessage() {
@@ -49,10 +49,10 @@ export class DeleteComponent implements OnInit {
     if (this.name.hasError('required')) {
       return 'Name cannot be empty';
     }
-    if (this.name.hasError('minLength')) {
+    if (this.name.hasError('minlength')) {
       return 'Name has to be at least 3 characters';
     }
-    if (this.name.hasError('maxLength')) {
+    if (this.name.hasError('maxlength')) {
       return 'Name has to be at maximum 50 characters';
     }
     if (this.name.hasError('pattern')) {
@@ -65,10 +65,10 @@ export class DeleteComponent implements OnInit {
     if (this.abbreviation.hasError('required')) {
       return 'Abbreviation cannot be empty';
     }
-    if (this.abbreviation.hasError('minLength')) {
+    if (this.abbreviation.hasError('minlength')) {
       return 'Abbreviation has to be at least 3 characters';
     }
-    if (this.abbreviation.hasError('maxLength')) {
+    if (this.abbreviation.hasError('maxlength')) {
       return 'Abbreviation has to be at maximum 10 characters';
     }
     if (this.abbreviation.hasError('pattern')) {
@@ -81,7 +81,7 @@ export class DeleteComponent implements OnInit {
     if (this.cnpj.hasError('required')) {
       return 'CNPJ cannot be empty';
     }
-    if (this.cnpj.hasError('minLength') || this.cnpj.hasError('maxLength')) {
+    if (this.cnpj.hasError('minlength') || this.cnpj.hasError('maxlength')) {
       return 'CNPJ has to be 14 characters';
     }
     if (this.cnpj.hasError('pattern')) {
