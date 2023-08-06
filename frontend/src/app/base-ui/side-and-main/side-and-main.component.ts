@@ -13,10 +13,8 @@ export class SideAndMainComponent implements AfterViewInit, OnChanges {
   @Output() emitter: EventEmitter<void> = new EventEmitter<void>();
 
   ngOnChanges(changes: SimpleChanges) {
-    for (const propName in changes) {
-      if (propName === "showMenu") {
-        this.toggleMenu();
-      }
+    if (changes['showMenu']) {
+      this.toggleMenu();
     }
   }
 
