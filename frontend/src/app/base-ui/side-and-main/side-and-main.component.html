@@ -1,0 +1,25 @@
+<mat-sidenav-container class="side-and-main-container" autosize [style.height.vh]="80">
+    <mat-sidenav #navMenu class="sidenav-container" mode="side" role="navigation">
+        <nav class="main-nav">
+            <ul>
+                <li>
+                    <a #linkCreateChurch routerLink="/church/create" routerLinkActive="active"
+                        ariaCurrentWhenActive="page" (click)="emitToggleMenuFromLink()">Create
+                        Church
+                    </a>
+                </li>
+                <li>
+                    <a #linkCreateChurch routerLink="/church/list" routerLinkActive="active"
+                        ariaCurrentWhenActive="page" (click)="emitToggleMenuFromLink()">List Churches
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="main-container" role="main">
+        <main class="main-content" [style.height.%]="100">
+            <router-outlet class="inner-page"></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,150 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Custom palettes
+$md-primarygreen: (
+  50 : #c9ffbe,
+  100 : #89d982,
+  200 : #55a152,
+  300 : #1e6d24,
+  400 : #0d6019,
+  500 : #005310,
+  600 : #00460c,
+  700 : #003908,
+  800 : #002203,
+  900 : #000b01,
+  A100 : #b8e9b4,
+  A200 : #60ac5b,
+  A400 : #0f731e,
+  A700 : #009115,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$md-secondarypurple: (
+  50 : #ffecf4,
+  100 : #ffade0,
+  200 : #d26eb2,
+  300 : #973c7c,
+  400 : #882f70,
+  500 : #7a2363,
+  600 : #6c1557,
+  700 : #5e054b,
+  800 : #3b002e,
+  900 : #24001e,
+  A100 : #ffeef9,
+  A200 : #d780ba,
+  A400 : #98347c,
+  A700 : #b10a8b,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$md-warningred: (
+  50 : #ffedea,
+  100 : #ffb4ab,
+  200 : #ff5449,
+  300 : #ba1a1a,
+  400 : #a80710,
+  500 : #93000a,
+  600 : #7e0007,
+  700 : #690005,
+  800 : #410002,
+  900 : #2b0003,
+  A100 : #ffeeec,
+  A200 : #ff665e,
+  A400 : #bc0711,
+  A700 : #bf000a,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$frontendonlineekklisia-primary-light: mat.define-palette($md-primarygreen, 300, 50, 900);
+$frontendonlineekklisia-accent-light: mat.define-palette($md-secondarypurple, 300, 50, 900);
+$frontendonlineekklisia-warn-light: mat.define-palette($md-warningred, 300, 50, 900);
+
+$frontendonlineekklisia-primary-dark: mat.define-palette($md-primarygreen, 100, 50, 900);
+$frontendonlineekklisia-accent-dark: mat.define-palette($md-secondarypurple, 100, 50, 900);
+$frontendonlineekklisia-warn-dark: mat.define-palette($md-warningred, 100, 50, 900);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$frontendonlineekklisia-light-theme: mat.define-light-theme((color: (primary: $frontendonlineekklisia-primary-light,
+        accent: $frontendonlineekklisia-accent-light,
+        warn: $frontendonlineekklisia-warn-light,
+      )));
+
+$frontendonlineekklisia-dark-theme: mat.define-dark-theme((color: (primary: $frontendonlineekklisia-primary-dark,
+        accent: $frontendonlineekklisia-accent-dark,
+        warn: $frontendonlineekklisia-warn-dark,
+      )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@media (prefers-color-scheme: light) {
+  @include mat.all-component-themes($frontendonlineekklisia-light-theme);
+}
+
+@media (prefers-color-scheme: dark) {
+  @include mat.all-component-colors($frontendonlineekklisia-dark-theme);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

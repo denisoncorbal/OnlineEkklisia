@@ -1,0 +1,39 @@
+<div class="churches-list">
+    <table mat-table [dataSource]="churches">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <td mat-cell *matCellDef="let church">{{church.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let church">{{church.name}}</td>
+        </ng-container>
+        <ng-container matColumnDef="abbreviation">
+            <th mat-header-cell *matHeaderCellDef>Abbreviation</th>
+            <td mat-cell *matCellDef="let church">{{church.abbreviation}}</td>
+        </ng-container>
+        <ng-container matColumnDef="cnpj">
+            <th mat-header-cell *matHeaderCellDef>CNPJ</th>
+            <td mat-cell *matCellDef="let church">{{church.cnpj}}</td>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef>Edit</th>
+            <td mat-cell *matCellDef="let church">
+                <a routerLink="/church/edit/{{church.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">
+                    <mat-icon aria-hidden="false" aria-label="Edit icon" fontIcon="edit" color="primary"></mat-icon>
+                </a>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef>Delete</th>
+            <td mat-cell *matCellDef="let church">
+                <a routerLink="/church/delete/{{church.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">
+                    <mat-icon aria-hidden="false" aria-label="Delete icon" fontIcon="delete" color="primary"></mat-icon>
+                </a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let church; columns: columnsToDisplay"></tr>
+    </table>
+</div>
